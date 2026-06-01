@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KiddiePod — Choose Your Companion</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+  <div class="planet planet-1"><div class="planet-ring"></div></div>
+  <div class="planet planet-2"></div>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">KiddiePod</a>
+    <nav class="header-nav">
+      <span class="nav-crumb">Welcome</span>
+      <span class="nav-sep">›</span>
+      <span class="nav-crumb active">Characters</span>
+      <span class="nav-sep">›</span>
+      <span class="nav-crumb">Stories</span>
+      <span class="nav-sep">›</span>
+      <span class="nav-crumb">Play</span>
+    </nav>
+  </header>
+
+  <div class="page-wrap">
+    <div class="center-main">
+
+      <a class="shelf-back-btn" href="index.html">◄ Back</a>
+
+      <div style="text-align:center; margin-bottom: 45px;">
+        <h1 class="page-title">Choose Your Science Companion!</h1>
+        <p class="page-subtitle">--- Pick a friendly guide to explore audio stories with you ---</p>
+        <p class="companion-story-note">Each companion comes with 2 exclusive stories!</p>
+      </div>
+
+      <div class="companion-grid companion-grid-4">
+
+        <!-- 1. Jimmy Neutron → Goodnight Spaceman + Roaring Rockets -->
+        <div class="companion-card"
+             onclick="selectCompanion(this, 'Jimmy Neutron', 'characterImage/jimmy.png', '#FFAF40')">
+          <img class="card-bg-img" src="characterImage/jimmy.png" alt="Jimmy Neutron">
+          <div class="card-gradient"></div>
+          <div class="card-inner-content">
+            <span class="companion-tag" style="background:#FFAF40;">Inventor</span>
+            <div class="card-text-group">
+              <span class="companion-show">The Adventures of Jimmy Neutron</span>
+              <h4 class="companion-name">Jimmy Neutron</h4>
+              <p class="companion-quote">"Gotta blast! Let's discover amazing scientific inventions together!"</p>
+              <div class="companion-books-list">
+                <div class="cb-item">Goodnight Spaceman</div>
+                <div class="cb-item">Roaring Rockets</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Dr. Heinz → Peter Pan + The Little Prince -->
+        <div class="companion-card"
+             onclick="selectCompanion(this, 'Dr. Heinz', 'characterImage/drheinz.png', '#BE2EDD')">
+          <img class="card-bg-img" src="characterImage/drheinz.png" alt="Dr. Heinz Doofenshmirtz">
+          <div class="card-gradient"></div>
+          <div class="card-inner-content">
+            <span class="companion-tag" style="background:#BE2EDD;">Silly Scientist</span>
+            <div class="card-text-group">
+              <span class="companion-show">Phineas &amp; Ferb</span>
+              <h4 class="companion-name">Dr. Heinz</h4>
+              <p class="companion-quote">"Behold! My Science-Explorer-inator is ready to teach us cool things!"</p>
+              <div class="companion-books-list">
+                <div class="cb-item">Peter Pan</div>
+                <div class="cb-item">The Little Prince</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Sandy Cheeks → Pete the Cat + The Wind and the Sun -->
+        <div class="companion-card"
+             onclick="selectCompanion(this, 'Sandy Cheeks', 'characterImage/sandy.png', '#1DD1A1')">
+          <img class="card-bg-img" src="characterImage/sandy.png" alt="Sandy Cheeks">
+          <div class="card-gradient"></div>
+          <div class="card-inner-content">
+            <span class="companion-tag" style="background:#1DD1A1;">Nature Expert</span>
+            <div class="card-text-group">
+              <span class="companion-show">SpongeBob SquarePants</span>
+              <h4 class="companion-name">Sandy Cheeks</h4>
+              <p class="companion-quote">"Howdy y'all! Let's check out some super cool wildlife facts!"</p>
+              <div class="companion-books-list">
+                <div class="cb-item">Pete the Cat: Out of This World</div>
+                <div class="cb-item">The Wind and the Sun</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Stewie Griffin → Black Hole + Cosmic Dust Crisis -->
+        <div class="companion-card"
+             onclick="selectCompanion(this, 'Stewie Griffin', 'characterImage/stewie.png', '#FF9F43')">
+          <img class="card-bg-img" src="characterImage/stewie.png" alt="Stewie Griffin">
+          <div class="card-gradient"></div>
+          <div class="card-inner-content">
+            <span class="companion-tag" style="background:#FF9F43;">Investigator</span>
+            <div class="card-text-group">
+              <span class="companion-show">Family Guy</span>
+              <h4 class="companion-name">Stewie Griffin</h4>
+              <p class="companion-quote">"What a splendid day for science! I love brainstorming big ideas!"</p>
+              <div class="companion-books-list">
+                <div class="cb-item">There Was a Black Hole…</div>
+                <div class="cb-item">The Cosmic Dust Crisis!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /companion-grid -->
+
+      <div id="popupProceed" class="popup-panel">
+        <button id="btnProceedLabel" class="popup-btn" onclick="proceedToShelf()">
+          Start Adventure! ^^
+        </button>
+      </div>
+
+      <a class="back-link" href="index.html">◄ Back to Home</a>
+
+    </div>
+    <footer><p>© 2026 Foizon • Web Systems & Technologies Project</p></footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

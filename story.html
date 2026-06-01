@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KiddiePod — Story Time</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+  <div class="planet planet-1"><div class="planet-ring"></div></div>
+  <div class="planet planet-2"></div>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">KiddiePod</a>
+    <nav class="header-nav">
+      <span class="nav-crumb">Welcome</span>
+      <span class="nav-sep">›</span>
+      <span class="nav-crumb">Characters</span>
+      <span class="nav-sep">›</span>
+      <span class="nav-crumb">Stories</span>
+      <span class="nav-sep">›</span>
+      <span class="nav-crumb active">Play</span>
+    </nav>
+  </header>
+
+  <div class="guide-banner" id="guideBanner">
+    <div class="guide-banner-inner">
+      <img class="guide-banner-img" src="" alt="">
+      <div class="guide-banner-text">
+        <span class="guide-banner-label">Your Guide</span>
+        <span class="guide-banner-name"></span>
+        <span class="guide-banner-speech"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-wrap">
+    <div class="story-main">
+
+      <a class="shelf-back-btn" href="innerpage.html">◄ Back to Books</a>
+
+      <div class="story-content">
+
+        <div class="book-frame">
+          <img id="detailCover" src="" alt="Book Cover" />
+        </div>
+
+        <div class="book-info-detail">
+          <div class="detail-series" id="detailSeries"></div>
+          <h1 class="detail-title"  id="detailTitle"></h1>
+          <div class="detail-author" id="detailAuthor"></div>
+
+          <!-- ── AUDIO PLAYER ── -->
+          <div class="audio-player-box">
+
+            <!-- Play/Pause row -->
+            <div class="audio-top-row">
+              <button class="audio-btn" id="playBtn" onclick="toggleAudio()">▶</button>
+              <div class="time-display">
+                <span id="currentTime">0:00</span>
+                <span class="time-sep">/</span>
+                <span id="totalTime">–:––</span>
+              </div>
+              <div class="duration-pill" id="durationLabel"></div>
+            </div>
+
+            <!-- Scrubber -->
+            <div class="progress-wrap" id="progressTrack">
+              <div class="progress-bg"></div>
+              <div class="progress-fill" id="progressFill"></div>
+              <div class="progress-thumb" id="progressThumb"></div>
+            </div>
+
+          </div><!-- /audio-player-box -->
+
+          <p class="summary" id="detailSummary"></p>
+        </div>
+
+      </div>
+
+      <div class="spaceship-deco"></div>
+    </div>
+    <footer><p>© 2026 Foizon • Web Systems & Technologies Project</p></footer>
+  </div>
+
+  <audio id="storyAudio"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

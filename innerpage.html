@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KiddiePod — Pick Your Story</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+  <div class="planet planet-1"><div class="planet-ring"></div></div>
+  <div class="planet planet-2"></div>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">KiddiePod</a>
+    <nav class="header-nav">
+      <span class="nav-crumb">Welcome</span>
+      <span class="nav-sep">›</span>
+      <span class="nav-crumb">Characters</span>
+      <span class="nav-sep">›</span>
+      <span class="nav-crumb active">Stories</span>
+      <span class="nav-sep">›</span>
+      <span class="nav-crumb">Play</span>
+    </nav>
+  </header>
+
+  <div class="guide-banner" id="guideBanner">
+    <div class="guide-banner-inner">
+      <img class="guide-banner-img" src="" alt="">
+      <div class="guide-banner-text">
+        <span class="guide-banner-label">Your Guide</span>
+        <span class="guide-banner-name"></span>
+        <span class="guide-banner-speech"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-wrap">
+    <div class="innerpage-main">
+
+      <a class="shelf-back-btn" href="character.html">◄ Back</a>
+
+      <h1 class="page-title">Pick Your Space Story!</h1>
+      <p class="page-subtitle">Your companion has 2 special stories waiting for you. Choose one and blast off!</p>
+
+      <div class="shelf-wrap">
+        <div class="books-grid" id="booksGrid">
+          <!-- populated by script.js renderBookShelf() -->
+        </div>
+        <div class="shelf-plank"></div>
+      </div>
+
+    </div>
+    <footer><p>© 2026 Foizon • Web Systems & Technologies Project</p></footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

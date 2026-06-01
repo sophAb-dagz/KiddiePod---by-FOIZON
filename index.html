@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KiddiePod — Welcome</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .screen { display: none; }
+    .screen.active { display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- Stars & Planets -->
+  <div class="stars" id="stars"></div>
+  <div class="planet planet-1"><div class="planet-ring"></div></div>
+  <div class="planet planet-2"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <a class="logo" href="index.html">KiddiePod</a>
+    <nav class="header-nav">
+      <span class="nav-crumb active" id="crumb-welcome">Welcome</span>
+      <span class="nav-sep">›</span>
+      <span class="nav-crumb" id="crumb-vision">Vision</span>
+      <span class="nav-sep">›</span>
+      <span class="nav-crumb">Characters</span>
+      <span class="nav-sep">›</span>
+      <span class="nav-crumb">Stories</span>
+    </nav>
+  </header>
+
+  <div class="page-wrap">
+    <main class="center-main">
+
+      <!-- ── SCREEN 1: WELCOME ── -->
+      <div id="screen-welcome" class="screen active">
+        <div class="pod-card">
+          <h2 class="welcome-title">KiddiePod</h2>
+          <p class="welcome-sub">Science-Themed Audiobooks</p>
+          <div class="cute-divider"></div>
+          <p class="welcome-body">
+            KiddiePod starts a fun science-themed story time designed purely for young kids ages 1 to 5.
+            Let's learn and discover the universe together!
+          </p>
+          <button class="action-button" onclick="goToVision()">CLick here to start</button>
+        </div>
+      </div>
+
+      <!-- ── SCREEN 2: VISION & MISSION ── -->
+      <div id="screen-vision" class="screen">
+        <div class="pod-card">
+          <h2 class="section-heading">Our Vision & Mission</h2>
+          <div class="cute-divider"></div>
+
+          <div class="split-box-layout">
+            <div class="bubble-info-box yellow-box">
+              <h3 class="box-heading">Our Vision</h3>
+              <p class="box-body">
+                At <strong>Foizon</strong>, we promise to make every household a beautiful classroom space.
+                Through our app <strong>KiddiePod</strong>, we give toddlers fun science-themed story books to easily listen to!
+              </p>
+            </div>
+            <div class="bubble-info-box green-box">
+              <h3 class="box-heading">Our Mission</h3>
+              <p class="box-body">
+                By listening to creative audiobooks about nature, cute biology, and modern inventions,
+                small kids expand their brain potential and easily build their own dreams!
+              </p>
+            </div>
+          </div>
+
+          <button class="action-button" onclick="window.location.href='character.html'">I AM READY!</button>
+          <button class="back-link" onclick="goToWelcome()">◄ Back to Home</button>
+        </div>
+      </div>
+
+    </main>
+    <footer><p>© 2026 Foizon • Web Systems & Technologies Project</p></footer>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function goToVision() {
+      document.getElementById('screen-welcome').classList.remove('active');
+      document.getElementById('screen-vision').classList.add('active');
+      document.getElementById('crumb-welcome').classList.remove('active');
+      document.getElementById('crumb-vision').classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+    function goToWelcome() {
+      document.getElementById('screen-vision').classList.remove('active');
+      document.getElementById('screen-welcome').classList.add('active');
+      document.getElementById('crumb-vision').classList.remove('active');
+      document.getElementById('crumb-welcome').classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  </script>
+</body>
+</html>
