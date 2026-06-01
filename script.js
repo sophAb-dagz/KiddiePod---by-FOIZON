@@ -1,8 +1,4 @@
-/* ══════════════════════════════════════
-   KIDDIPOD — SHARED SCRIPT
-══════════════════════════════════════ */
-
-/* ── STARS ── */
+// --- shining, shimmering stars ---
 function generateStars() {
   const starsEl = document.getElementById('stars');
   if (!starsEl) return;
@@ -22,14 +18,12 @@ function generateStars() {
 }
 generateStars();
 
-/* ══════════════════════════════════════
-   SESSION STORAGE
-══════════════════════════════════════ */
 function saveCompanion(name, img, color) {
   sessionStorage.setItem('companion_name',  name);
   sessionStorage.setItem('companion_img',   img);
   sessionStorage.setItem('companion_color', color);
 }
+
 function loadCompanion() {
   return {
     name:  sessionStorage.getItem('companion_name'),
@@ -37,12 +31,11 @@ function loadCompanion() {
     color: sessionStorage.getItem('companion_color') || '#FFD93D',
   };
 }
+
 function saveBook(id) { sessionStorage.setItem('selected_book', id); }
 function loadBook()   { return sessionStorage.getItem('selected_book'); }
 
-/* ══════════════════════════════════════
-   GUIDE BANNER
-══════════════════════════════════════ */
+// --- character quotes ---
 const companionQuotes = {
   'Jimmy Neutron':  "Gotta blast! Let's discover something amazing today!",
   'Dr. Heinz':      "Behold! My Story-Listener-inator is fully activated!",
@@ -64,9 +57,6 @@ function renderGuideBanner() {
   banner.classList.add('visible');
 }
 
-/* ══════════════════════════════════════
-   CHARACTER PAGE
-══════════════════════════════════════ */
 function selectCompanion(cardEl, name, img, color) {
   document.querySelectorAll('.companion-card').forEach(c => c.classList.remove('selected-active'));
   cardEl.classList.add('selected-active');
@@ -85,13 +75,7 @@ function proceedToShelf() {
   window.location.href = 'innerpage.html';
 }
 
-/* ══════════════════════════════════════
-   BOOK DATA — 8 books, exactly 2 per character
-   Jimmy Neutron  → goodnight, rockets
-   Dr. Heinz      → peterpan, littleprince
-   Sandy Cheeks   → petethecat, windandsun
-   Stewie Griffin → blackhole, cosmicdust
-══════════════════════════════════════ */
+// --- book details ---
 const characterBooks = {
   'Jimmy Neutron':  ['goodnight', 'rockets'],
   'Dr. Heinz':      ['peterpan', 'littleprince'],
@@ -214,9 +198,7 @@ const books = {
   },
 };
 
-/* ══════════════════════════════════════
-   INNER PAGE — render books for companion
-══════════════════════════════════════ */
+// --- bookshelf render ---
 function renderBookShelf() {
   const grid = document.getElementById('booksGrid');
   if (!grid) return;
@@ -224,7 +206,6 @@ function renderBookShelf() {
   const ids = (c.name && characterBooks[c.name]) ? characterBooks[c.name] : Object.keys(books);
 
   grid.innerHTML = '';
-
   grid.style.gridTemplateColumns = 'repeat(2, minmax(0, 400px))';
   grid.style.justifyContent = 'center';
 
@@ -253,9 +234,7 @@ function openBook(id) {
   window.location.href = 'story.html';
 }
 
-/* ══════════════════════════════════════
-   STORY PAGE — populate + audio player
-══════════════════════════════════════ */
+// --- audio then book display ---
 function populateStory() {
   const id   = loadBook();
   const book = books[id];
@@ -272,7 +251,6 @@ function populateStory() {
   audio.src = book.audio;
   audio.load();
   document.getElementById('playBtn').textContent = '▶';
-  document.getElementById('durationLabel').textContent = book.duration;
 }
 
 function toggleAudio() {
@@ -328,16 +306,7 @@ function initScrubber() {
   document.addEventListener('touchend',   () => { dragging = false; });
 }
 
-function removeHeaderNavigation() {
-  const selectors = ['.navbar', '.nav-links', 'nav', '.breadcrumbs', '.header-nav'];
-  selectors.forEach(selector => {
-    const el = document.querySelector(selector);
-    if (el) el.style.display = 'none';
-  });
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-  removeHeaderNavigation(); 
   if (document.getElementById('detailCover')) { populateStory(); initScrubber(); }
   if (document.getElementById('booksGrid'))   renderBookShelf();
   if (document.getElementById('guideBanner')) renderGuideBanner();
