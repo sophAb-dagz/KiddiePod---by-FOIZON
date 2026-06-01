@@ -94,7 +94,7 @@ body {
 }
 
 /* ==========================================================================
-   NAVIGATION & SITE HEADER (BROWSER COMPATIBILITY REWRITES)
+   NAVIGATION & SITE HEADER (STRICT CLEANUP)
    ========================================================================== */
 
 .site-header {
@@ -118,34 +118,14 @@ body {
   text-decoration: none;
 }
 
-.header-nav {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.nav-crumb,
-.header-nav a,
-.header-nav a:visited,
-.header-nav a:link {
-  font-family: var(--font-title) !important;
-  font-weight: normal !important;
-  font-size: 14px;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-decoration: none;
-}
-
-.nav-crumb.active,
-.header-nav a.active {
-  color: var(--accent-yellow) !important;
-}
-
-.nav-sep {
-  font-family: var(--font-title) !important;
-  color: var(--text-muted);
-  font-size: 14px;
+.header-nav, 
+.nav-crumb, 
+.nav-sep, 
+.header-nav a {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
 footer {
@@ -573,7 +553,7 @@ footer {
 }
 
 /* ==========================================================================
-   STORY SHELF ARCHITECTURE
+   STORY SHELF ARCHITECTURE (FIXED BOOK COVER BLOCKS)
    ========================================================================== */
 
 .innerpage-main {
@@ -669,10 +649,12 @@ footer {
   border-radius: 20px;
   background: var(--badge-bg, #FFD93D);
   color: var(--badge-color, #5a3e00);
+  z-index: 5;
 }
 
 .book-cover {
-  height: 100px;
+  width: 100%;
+  height: 240px; 
   background: var(--cover-bg, #1e2460);
   overflow: hidden;
   display: flex;
@@ -731,7 +713,7 @@ footer {
 }
 
 /* ==========================================================================
-   STORY DISPLAY DETAILS
+   STORY DISPLAY DETAILS (INNER VIEWPORTS RECOVERY)
    ========================================================================== */
 
 .story-main {
@@ -754,9 +736,9 @@ footer {
 }
 
 .book-frame {
-  flex-shrink: 0 !important;
-  width: 360px !important;
-  height: 390px !important;
+  flex-shrink: 0;
+  width: 320px;
+  height: 380px;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 12px 36px rgba(0,0,0,0.5);
@@ -765,8 +747,8 @@ footer {
 }
 
 #detailCover {
-  width: 100% !important;
-  height: 100% !important;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
