@@ -46,7 +46,7 @@ function loadBook()   { return sessionStorage.getItem('selected_book'); }
 const companionQuotes = {
   'Jimmy Neutron':  "Gotta blast! Let's discover something amazing today!",
   'Dr. Heinz':      "Behold! My Story-Listener-inator is fully activated!",
-  'Sandy Cheeks':   "Yeehaw! Ready to learn somethin' real fun today?",
+  'Sandy Cheeks':    "Yeehaw! Ready to learn somethin' real fun today?",
   'Stewie Griffin': "Yes, well. Let's get on with it, shall we? Science awaits.",
 };
 
@@ -95,7 +95,7 @@ function proceedToShelf() {
 const characterBooks = {
   'Jimmy Neutron':  ['goodnight', 'rockets'],
   'Dr. Heinz':      ['peterpan', 'littleprince'],
-  'Sandy Cheeks':   ['petethecat', 'windandsun'],
+  'Sandy Cheeks':    ['petethecat', 'windandsun'],
   'Stewie Griffin': ['blackhole', 'cosmicdust'],
 };
 
@@ -105,7 +105,6 @@ const books = {
     series:   'Picture Book',
     title:    'Goodnight Spaceman',
     author:   'by Michelle Robinson',
-    duration: '2:09 min listen',
     summary:  'Goodnight Spaceman is a sweet and soothing bedtime story about a little boy who dreams of being an astronaut. As the stars come out and the moon rises, he says goodnight to each planet, rocket, and galaxy — until sleep carries him gently into the cosmos.',
     audio:    'Audio/Goodnight_Spaceman_-_Read_Aloud.mp3',
     badge:    'Bedtime',
@@ -120,7 +119,6 @@ const books = {
     series:   'Amazing Machines',
     title:    'Roaring Rockets',
     author:   'by Tony Mitton',
-    duration: '3:55 min listen',
     summary:  'Roaring Rockets takes little ones on a thrilling journey into space! With bouncy, rhyming text and bright illustrations, children discover how rockets are built, how they launch, and what astronauts get up to once they reach the stars.',
     audio:    'Audio/Roaring_Rockets_by_Tony_Mitton.mp3',
     badge:    'Science',
@@ -135,7 +133,6 @@ const books = {
     series:   'Classic Tale',
     title:    'Peter Pan',
     author:   'by J. M. Barrie',
-    duration: '9:54 min listen',
     summary:  'Peter Pan is a classic tale about a mischievous boy who refuses to grow up, living in magical Neverland with fairies, the Lost Boys, and the evil Captain Hook. Peter whisks the Darling children from London to his world of adventures, pirates, and wonder.',
     audio:    'Audio/Peter_Pan_Read_Along_Storybook.mp3',
     badge:    'Classic',
@@ -150,7 +147,6 @@ const books = {
     series:   'Classic Tale',
     title:    'The Little Prince',
     author:   'by Antoine de Saint-Exupéry',
-    duration: '3:35 min listen',
     summary:  'A tiny prince lives alone on a small planet with a proud rose he loves dearly. When he travels the universe, he meets a fox, a snake, and a pilot lost in the desert — and slowly learns that what is truly important is invisible to the eye.',
     audio:    'Audio/The_Little_Prince.mp3',
     badge:    'Classic',
@@ -165,7 +161,6 @@ const books = {
     series:   'Picture Book',
     title:    'Pete the Cat: Out of This World',
     author:   'by James Dean',
-    duration: '3:38 min listen',
     summary:  'Pete the Cat blasts off on an out-of-this-world adventure! Dressed in his astronaut suit, Pete zooms past stars, visits friendly aliens, and discovers that the coolest thing in the universe is having fun wherever you go.',
     audio:    'Audio/Pete_the_Cat_Out_of_This_World__Animated_Book__Read_aloud.mp3',
     badge:    'Adventure',
@@ -180,7 +175,6 @@ const books = {
     series:   'Cosmic Story',
     title:    'There Was a Black Hole That Swallowed the Universe',
     author:   'by Christine Baldacchino',
-    duration: '4:42 min listen',
     summary:  'A tiny but mighty black hole is hungry — and it starts swallowing everything in the universe, one thing at a time! Stars, planets, rocket ships, even words disappear into it. A delightfully funny and clever tale about something very, very BIG.',
     audio:    'Audio/There_Was_A_BLACK_HOLE_That_Swallowed_The_Universe.mp3',
     badge:    'Funny',
@@ -195,7 +189,6 @@ const books = {
     series:   'Fable',
     title:    'The Wind and the Sun',
     author:   'by Aesop',
-    duration: '3:21 min listen',
     summary:  'The Wind and the Sun have a friendly argument: who is stronger? They decide to settle it by seeing who can make a traveler remove his coat first. The Wind blows and blows, but the Sun has a warmer idea — and teaches a gentle lesson about kindness.',
     audio:    'Audio/The_Wind_and_the_Sun_-_US_English_accent__TheFableCottage_com_.mp3',
     badge:    'Fable',
@@ -210,7 +203,6 @@ const books = {
     series:   'Sci-Fi Tale',
     title:    'The Cosmic Dust Crisis!',
     author:   'by AumSum Science',
-    duration: '6:02 min listen',
     summary:  'Planet Zara is running out of stardust — and without it, the stars will go dark forever! A brave little robot named Pip sets off across the galaxy to find the last cosmic dust cloud and save the night sky before bedtime.',
     audio:    'Audio/The_Cosmic_Dust_Crisis_.mp3',
     badge:    'Sci-Fi',
@@ -233,7 +225,6 @@ function renderBookShelf() {
 
   grid.innerHTML = '';
 
-  // Always 2 books per character — centre them nicely
   grid.style.gridTemplateColumns = 'repeat(2, minmax(0, 400px))';
   grid.style.justifyContent = 'center';
 
@@ -292,7 +283,6 @@ function toggleAudio() {
   else              { audio.pause(); btn.textContent = '▶'; }
 }
 
-/* ── Scrubber / Progress Bar ── */
 function initScrubber() {
   const audio = document.getElementById('storyAudio');
   const track = document.getElementById('progressTrack');
@@ -338,7 +328,16 @@ function initScrubber() {
   document.addEventListener('touchend',   () => { dragging = false; });
 }
 
+function removeHeaderNavigation() {
+  const selectors = ['.navbar', '.nav-links', 'nav', '.breadcrumbs', '.header-nav'];
+  selectors.forEach(selector => {
+    const el = document.querySelector(selector);
+    if (el) el.style.display = 'none';
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  removeHeaderNavigation(); 
   if (document.getElementById('detailCover')) { populateStory(); initScrubber(); }
   if (document.getElementById('booksGrid'))   renderBookShelf();
   if (document.getElementById('guideBanner')) renderGuideBanner();
